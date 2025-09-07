@@ -8,13 +8,23 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background: url('https://dikdewiq-design.github.io/sarapan/4.jpg') no-repeat center center fixed;
+      background: url('images/pemendangan.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #2e2e2e;
+      scroll-behavior: smooth;
     }
     h1, .lead {
       color: #fff;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+    .navbar {
+      background: rgba(0,0,0,0.8) !important;
+    }
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+    }
+    .nav-link:hover {
+      color: #25D366 !important;
     }
     .food-item img {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -37,17 +47,7 @@
       padding: 30px 20px;
       text-align: center;
       margin-top: 50px;
-          .map-container {
-      width: 100%;
-      height: 400px;
-      margin-top: 20px;
     }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      border-radius: 12px;
-     }
     .btn-whatsapp {
       display: inline-block;
       margin-top: 15px;
@@ -63,64 +63,148 @@
     .btn-whatsapp:hover {
       background-color: #1ebe57;
     }
+    .map-container {
+      width: 100%;
+      height: 400px;
+      margin-top: 20px;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 12px;
+    }
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 90px;
+      right: 20px;
+      background-color: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      z-index: 1000;
+      transition: 0.3s;
+    }
+    .whatsapp-float:hover {
+      background-color: #1ebe57;
+      transform: scale(1.1);
+    }
+    .whatsapp-float i {
+      margin-top: 16px;
+    }
   </style>
+  <!-- FontAwesome untuk ikon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Pecel Tradisional</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
   <!-- Bagian Judul -->
-  <div class="container text-center my-5">
-    <h1>Warung Pecel Tradisional</h1>
-    <p class="lead">Menyajikan Pecel, Tempe, dan Telor khas Wonogiri</p>
-  </div>
+  <section id="home" class="text-center my-5" style="padding-top: 80px;">
+    <div class="container">
+      <h1>Warung Pecel Tradisional</h1>
+      <p class="lead">Menyajikan Pecel, Tempe, dan Telor khas Wonogiri</p>
+      <button class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#orderModal">🍽️ Pesan Sekarang</button>
+    </div>
+  </section>
 
   <!-- Galeri Menu -->
-  <div class="container">
+  <section id="menu" class="container my-5">
     <div class="row g-4">
-
       <div class="col-md-4 text-center food-item">
-        <img src="1.png" class="img-fluid" alt="Tempe"
+        <img src="images/1.png" class="img-fluid" alt="Tempe"
              onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Tempe';">
         <p>Tempe</p>
       </div>
-
       <div class="col-md-4 text-center food-item">
-        <img src="2.png" class="img-fluid" alt="Pecel"
+        <img src="images/2.png" class="img-fluid" alt="Pecel"
              onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Pecel';">
         <p>Pecel</p>
       </div>
-
       <div class="col-md-4 text-center food-item">
-        <img src="3.png" class="img-fluid" alt="Telor"
+        <img src="images/3.png" class="img-fluid" alt="Telor"
              onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Telor';">
         <p>Telor</p>
       </div>
-
     </div>
-  </div>
+  </section>
 
   <!-- Footer -->
-  <footer>
+  <footer id="kontak">
     <h4>Hubungi Kami</h4>
     <p>Alamat: Karang Talun, Pokohkidul, Wonogiri, Jawa Tengah</p>
     <p>Telepon/WA: 0812-3456-7890</p>
-    <a href="https://wa.me/6282242031825?text=Mbak%20Dewiq,aku%20mau%20pesen%20Nasi%20pecel%20ya" class="btn-whatsapp" target="_blank">
-      💬 Chat via WhatsApp
-    </a>
-    </footer>
-        <div class="map-container">
-      <!-- Peta Google Maps -->
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1976.2986639760409!2d110.93491!3d-7.832371!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a2e6be4de81a9%3A0xfdff490db75ae936!2sKarang%20Talun%2C%20Pokohkidul%2C%20Wonogiri%2C%20Wonogiri%20Regency%2C%20Central%20Java!5e0!3m2!1sen!2sid!4v1757256114750!5m2!1sen!2sid"
-        allowfullscreen
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
+    <a href="https://wa.me/6281234567890" class="btn-whatsapp" target="_blank">💬 Chat via WhatsApp</a>
 
+    <!-- Google Maps -->
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1976.2986639760409!2d110.93491!3d-7.832371!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a2e6be4de81a9%3A0xfdff490db75ae936!2sKarang%20Talun%2C%20Pokohkidul%2C%20Wonogiri%2C%20Wonogiri%20Regency%2C%20Central%20Java!5e0!3m2!1sen!2sid!4v1757256114750!5m2!1sen!2sid"
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
   </footer>
 
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/6281234567890" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Modal Order Form -->
+  <div class="modal fade" id="orderModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">🍽️ Pesan Menu</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="orderForm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nama Anda</label>
+              <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="order" class="form-label">Pesanan</label>
+              <textarea class="form-control" id="order" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Kirim ke WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let name = document.getElementById("name").value;
+      let order = document.getElementById("order").value;
+      let phone = "6281234567890"; // ganti dengan nomor WA kamu
+      let message = `Halo, saya ${name}. Saya ingin pesan:\n${order}`;
+      let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    });
+  </script>
 </body>
 </html>
-
-
-
-
