@@ -43,9 +43,19 @@
       margin: 40px auto;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
-    .gallery img {
+    .food-item img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .food-item img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+    .food-item p {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #2e2e2e;
     }
     footer {
       background: rgba(77, 77, 46, 0.95);
@@ -73,6 +83,12 @@
       background-color: #1ebd5a;
       color: white;
     }
+    .map-container {
+      margin-top: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
   </style>
 </head>
 <body>
@@ -86,53 +102,57 @@
   <!-- Gallery -->
   <div class="container gallery" data-aos="zoom-in">
     <div class="row g-4">
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-       <div class="container gallery" data-aos="zoom-in">
-  <div class="row g-4">
 
-    <!-- Tempe -->
-    <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="200">
-      <img src="images/1.png" 
-           class="img-fluid" 
-           alt="Tempe"
-           onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Tempe';">
-      <p class="mt-2 fw-bold">Tempe</p>
-    </div>
-
-    <!-- Pecel -->
-    <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="400">
-      <img src="images/2.png" 
-           class="img-fluid" 
-           alt="Pecel"
-           onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Pecel';">
-      <p class="mt-2 fw-bold">Pecel</p>
-    </div>
-
-    <!-- Telor -->
-    <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="600">
-      <img src="images/3.png" 
-           class="img-fluid" 
-           alt="Telor"
-           onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Telor';">
-      <p class="mt-2 fw-bold">Telor</p>
-    </div>
-
-  </div>
-</div>
-
-
+      <!-- Tempe -->
+      <div class="col-md-4 text-center food-item" data-aos="fade-up" data-aos-delay="200">
+        <img src="images/1.png" 
+             class="img-fluid" 
+             alt="Tempe"
+             onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Tempe';">
+        <p>Tempe</p>
       </div>
+
+      <!-- Pecel -->
+      <div class="col-md-4 text-center food-item" data-aos="fade-up" data-aos-delay="400">
+        <img src="images/2.png" 
+             class="img-fluid" 
+             alt="Pecel"
+             onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Pecel';">
+        <p>Pecel</p>
+      </div>
+
+      <!-- Telor -->
+      <div class="col-md-4 text-center food-item" data-aos="fade-up" data-aos-delay="600">
+        <img src="images/3.png" 
+             class="img-fluid" 
+             alt="Telor"
+             onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Telor';">
+        <p>Telor</p>
+      </div>
+
     </div>
   </div>
 
   <!-- Footer -->
   <footer data-aos="fade-up">
     <p><strong>Indonesian foods we can't live without</strong></p>
-    <p>📍 Alamat: Perumnas Pokoh Kidul </p>
-    <p>📞 Telepon: +62 822-4203-1825</p>
-    <a href="https://wa.me/6282242031825?text=Halo%20mbak%20Dewiq,aku%20mau%20pesen%20pecel%20ya" target="_blank" class="whatsapp-btn">
+    <p>📍 Alamat: Jl. Malioboro No. 123, Yogyakarta, Indonesia</p>
+    <p>📞 Telepon: +62 812-3456-7890</p>
+    <a href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20tanya%20tentang%20makanan%20tradisional" target="_blank" class="whatsapp-btn">
       💬 Chat via WhatsApp
     </a>
+
+    <!-- Google Maps Embed -->
+    <div class="map-container mt-4">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.255299565928!2d110.36390917486138!3d-7.823979577852862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a579d0f0b0cf5%3A0x5d73a1b3ddcbb0dd!2sJl.%20Malioboro%2C%20Yogyakarta!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid" 
+        width="100%" 
+        height="250" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
   </footer>
 
   <!-- Bootstrap JS -->
@@ -147,16 +167,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
