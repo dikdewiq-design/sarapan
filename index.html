@@ -1,47 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SARAPAN Nasi Pecel Traditional Food</title>
-
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- AOS (Animate On Scroll) CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
+  <title>Warung Pecel Tradisional</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-    font-family: 'Arial', sans-serif;
-    background: url('https://dikdewiq-design.github.io/sarapan/4.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #2e2e2e;
-    }
-    header {
-      text-align: center;
-      padding: 80px 20px 40px 20px;
-      border-bottom: 2px solid #2e2e2e;
-      background: rgba(255, 255, 255, 0.9);
-    }
-    header h1 {
-      font-size: 3rem;
-      font-weight: bold;
-      margin: 0;
-    }
-    header h2 {
-      font-size: 1.5rem;
-      font-weight: 400;
-      margin: 10px 0 0 0;
-      color: #4d4d2e;
-      font-style: italic;
-    }
-    .gallery {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 40px;
-      border-radius: 12px;
-      margin: 40px auto;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-family: 'Arial', sans-serif;
+      background: url('images/pemendangan.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #2e2e2e;
     }
     .food-item img {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -55,94 +24,76 @@
       margin-top: 10px;
       font-weight: bold;
       font-size: 1.1rem;
-      color: #2e2e2e;
+      color: #fff;
     }
     footer {
-      background: rgba(77, 77, 46, 0.95);
-      color: white;
+      background: rgba(0,0,0,0.8);
+      color: #fff;
+      padding: 30px 20px;
       text-align: center;
-      padding: 30px;
-      margin-top: 40px;
-      border-top: 4px solid #ffcb05;
-    }
-    footer p {
-      margin: 5px 0;
-    }
-    .whatsapp-btn {
-      display: inline-block;
-      margin-top: 15px;
-      background-color: #25d366;
-      color: white;
-      font-weight: bold;
-      padding: 12px 25px;
-      border-radius: 30px;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-    .whatsapp-btn:hover {
-      background-color: #1ebd5a;
-      color: white;
+      margin-top: 50px;
     }
     .map-container {
+      width: 100%;
+      height: 400px;
       margin-top: 20px;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
       border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .btn-whatsapp {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #25d366;
+      color: #fff;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn-whatsapp:hover {
+      background-color: #1ebe57;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header data-aos="fade-down">
-    <h1>SARAPAN Nasi Pecel</h1>
-    <h2>Traditional Food</h2>
-  </header>
-
-  <!-- Gallery -->
-  <div class="container gallery" data-aos="zoom-in">
+  <div class="container text-center my-5">
+    <h1>Warung Pecel Tradisional</h1>
+    <p class="lead">Menyajikan Pecel, Tempe, dan Telor khas Wonogiri</p>
     <div class="row g-4">
 
-      <!-- Tempe -->
-      <div class="col-md-4 text-center food-item" data-aos="fade-up" data-aos-delay="200">
-        <img src="1.png" 
-             class="img-fluid" 
-             alt="Tempe"
-             onerror="this.onerror=null;this.src='1.png/600x400/text=Tempe';">
+      <div class="col-md-4 text-center food-item">
+        <img src="images/1.png" class="img-fluid" alt="Tempe"
+             onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Tempe';">
         <p>Tempe</p>
       </div>
 
-      <!-- Pecel -->
-      <div class="col-md-4 text-center food-item" data-aos="fade-up" data-aos-delay="400">
-        <img src="2.png" 
-             class="img-fluid" 
-             alt="Pecel"
-             onerror="this.onerror=null;this.src='2.png/text=Pecel';">
+      <div class="col-md-4 text-center food-item">
+        <img src="images/2.png" class="img-fluid" alt="Pecel"
+             onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Pecel';">
         <p>Pecel</p>
       </div>
 
-      <!-- Telor -->
-      <div class="col-md-4 text-center food-item" data-aos="fade-up" data-aos-delay="600">
-        <img src="3.png" 
-             class="img-fluid" 
-             alt="Telor"
-             onerror="this.onerror=null;this.src='3.png/600x400/aaaaaa/000000&text=Telor';">
+      <div class="col-md-4 text-center food-item">
+        <img src="images/3.png" class="img-fluid" alt="Telor"
+             onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Telor';">
         <p>Telor</p>
       </div>
 
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer data-aos="fade-up">
-    <p><strong>Indonesian foods we can't live without</strong></p>
-    <p>📍 Alamat: Perumnas,Pokoh Kidul,Wonogiri</p>
-    <p>📞 Telepon: +62 822-4203-1825</p>
-    <a href="https://wa.me/6282242031825?text=Mbak%20Dewiq,aku%20mau%20pesen%20Nasi%20pecel%20ya" target="_blank" class="whatsapp-btn">
-      💬 Chat via WhatsApp
-    </a>
+  <footer>
+    <h4>Hubungi Kami</h4>
+    <p>Alamat: Karang Talun, Pokohkidul, Wonogiri, Jawa Tengah</p>
+    <p>Telepon/WA: 0812-3456-7890</p>
+    <a href="https://wa.me/6281234567890" class="btn-whatsapp" target="_blank">Chat via WhatsApp</a>
 
-    <!-- Google Maps Embed -->
     <div class="map-container">
       <!-- Peta Google Maps -->
       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1976.2986639760409!2d110.93491!3d-7.832371!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a2e6be4de81a9%3A0xfdff490db75ae936!2sKarang%20Talun%2C%20Pokohkidul%2C%20Wonogiri%2C%20Wonogiri%20Regency%2C%20Central%20Java!5e0!3m2!1sen!2sid!4v1757256114750!5m2!1sen!2sid"
@@ -153,47 +104,5 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- AOS JS -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
-  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
