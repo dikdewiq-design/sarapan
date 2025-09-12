@@ -1,331 +1,66 @@
+Lewati ke konten
+Riwayat obrolan
+
+Anda bilang:
+Gambar yang diunggah
+Buatkan script untuk tombol WA
+ChatGPT bilang:
+Oke, saya buatkan script sederhana untuk tombol WhatsApp seperti yang ada di gambar. Tombol ini akan selalu muncul di pojok kanan bawah halaman website, dengan ikon bulat berwarna hijau khas WhatsApp, dan ketika diklik akan membuka chat WhatsApp ke nomor tujuan.
+
+Berikut contoh script lengkap (HTML + CSS + link ke WhatsApp):
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Warung Pecel Tradisional</title>
-  <meta name="description" content="Warung Pecel Tradisional – Pecel, Tempe, Telor, dan Menu Khas Wonogiri. Order online via WhatsApp." />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tombol WhatsApp</title>
   <style>
-    :root {
-      --wa: #25D366;
-      --wa-hover: #1ebe57;
-      --dark: #222;
+    /* Tombol WhatsApp */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.2s ease-in-out;
     }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background:url('https://dikdewiq-design.github.io/sarapan/Background.png') no-repeat center center fixed;
-      background-size: cover;
-      color: #2e2e2e;
+
+    .whatsapp-button:hover {
+      transform: scale(1.1);
     }
-    section { scroll-margin-top: 90px; }
-    .navbar { background: rgba(0,0,0,0.8) !important; }
-    .navbar-brand, .nav-link { color: #fff !important; }
-    .nav-link:hover { color: var(--wa) !important; }
-    h1, .lead {
-      color: #fff;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-    }
-    .food-item img {
-      transition: transform .3s ease, box-shadow .3s ease;
-      border-radius: 12px;
-    }
-    .food-item img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-    }
-    .food-item p {
-      margin-top: 10px;
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: #fff;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-    }
-    footer {
-      background: var(--dark);
-      color: #fff;
-      padding: 32px 20px;
-      text-align: center;
-      margin-top: 56px;
-    }
-    .btn-whatsapp {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 12px 24px;
-      background-color: var(--wa);
-      color: #fff;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 16px;
-      transition: background .3s;
-    }
-    .btn-whatsapp:hover { background-color: var(--wa-hover); }
-    .map-container { width: 100%; height: 400px; margin-top: 20px; }
-    .map-container iframe { width: 100%; height: 100%; border: 0; border-radius: 12px; }
-    /* Floating WhatsApp */
-    .whatsapp-float {
-      position: fixed; width: 60px; height: 60px; bottom: 90px; right: 20px;
-      background-color: var(--wa); color: #fff; border-radius: 50%; text-align: center;
-      font-size: 30px; box-shadow: 2px 2px 6px rgba(0,0,0,0.35); z-index: 1000; transition: .3s;
-    }
-    .whatsapp-float:hover { background-color: var(--wa-hover); transform: scale(1.08); }
-    .whatsapp-float i { margin-top: 16px; }
-    .modal-header.bg-success { background: var(--wa) !important; }
-    .form-hint { font-size: .85rem; color: #6c757d; }
   </style>
+  <!-- Font Awesome untuk ikon WhatsApp -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" aria-label="Navigasi Utama">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#home">Pecel Tradisional</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
-          <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero / Home -->
-  <section id="home" class="text-center my-5" style="padding-top: 90px;">
-    <div class="container">
-      <h1 class="fw-bold">Warung Pecel Tradisional</h1>
-      <p class="lead">Menyajikan Pecel, Tempe, Telor, dan Menu Khas Wonogiri – FRESHH SETIAP HARI.</p>
-      <button class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#orderModal">🍽️ Pesan Sekarang</button>
-    </div>
-  </section>
-
-  <!-- Galeri Menu (6 gambar) -->
-  <section id="menu" class="container my-5">
-    <div class="row g-4">
-      <div class="col-md-4 text-center food-item">
-        <img src="1.png" class="img-fluid" alt="Tempe" onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Tempe';" />
-        <p>Tempe</p>
-      </div>
-      <div class="col-md-4 text-center food-item">
-        <img src="2.png" class="img-fluid" alt="Pecel" onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Pecel';" />
-        <p>Pecel</p>
-      </div>
-      <div class="col-md-4 text-center food-item">
-        <img src="4.png" class="img-fluid" alt="Telor" onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Telor';" />
-        <p>Telor</p>
-      </div>
-      <div class="col-md-4 text-center food-item">
-        <img src="5.png" class="img-fluid" alt="Sambel" onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Sambel';" />
-        <p>Sambel</p>
-      </div>
-      <div class="col-md-4 text-center food-item">
-        <img src="3.png" class="img-fluid" alt="Sayur" onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Soto';" />
-        <p>Soto</p>
-      </div>
-      <div class="col-md-4 text-center food-item">
-        <img src="6.png" class="img-fluid" alt="Kerupuk" onerror="this.onerror=null;this.src='https://dummyimage.com/600x400/aaaaaa/000000&text=Rempeyek';" />
-        <p>Rempeyek</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer + WA + Maps -->
-  <footer id="kontak">
-    <h4 class="fw-bold">Hubungi Kami</h4>
-    <p class="mb-1">Perumnas Pokohkidul, Wonogiri, Jawa Tengah</p>
-    <p class="mb-2">Telepon/WA: <span class="fw-semibold">082242031825</span></p>
-    <a id="waFooter" href="https://wa.me/6282242031825" class="btn-whatsapp" target="_blank" rel="noopener">💬 Chat via WhatsApp</a>
-
-    <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d247.0373337483747!2d110.93474149570714!3d-7.832369733147701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1ssarapan!5e0!3m2!1sen!2sid!4v1757305950471!5m2!1sen!2sid"
-        width="600" 
-        height="450" 
-        style="border:0;" 
-        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-  </footer>
-
-  <!-- Floating WhatsApp Button -->
-  <a id="waFloat" href="https://wa.me/6282135934679" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
-    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  <!-- Tombol WhatsApp -->
+  <a href="https://wa.me/6281234567890" class="whatsapp-button" target="_blank">
+    <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- Modal Order Multi-Menu -->
-  <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header bg-success text-white">
-          <h5 class="modal-title" id="orderModalLabel">🍽️ Pesan Menu</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="orderForm">
-            <div class="mb-3">
-              <label for="custName" class="form-label">Nama Anda</label>
-              <input type="text" class="form-control" id="custName" required />
-            </div>
-
-            <div class="mb-2"><strong>Pilih Menu & Jumlah</strong></div>
-
-            <!-- Daftar item -->
-            <div class="container-fluid px-0">
-              <!-- Item template rows -->
-              <div class="row align-items-center mb-2">
-                <div class="col">
-                  <div class="form-check">
-                    <input class="form-check-input item-check" type="checkbox" id="itemTempe" data-item="Tempe" />
-                    <label class="form-check-label" for="itemTempe">Tempe</label>
-                  </div>
-                </div>
-                <div class="col-auto" style="width:110px;">
-                  <input type="number" class="form-control form-control-sm item-qty" data-item="Tempe" value="1" min="1" disabled />
-                </div>
-              </div>
-
-              <div class="row align-items-center mb-2">
-                <div class="col">
-                  <div class="form-check">
-                    <input class="form-check-input item-check" type="checkbox" id="itemPecel" data-item="Pecel" />
-                    <label class="form-check-label" for="itemPecel">Pecel</label>
-                  </div>
-                </div>
-                <div class="col-auto" style="width:110px;">
-                  <input type="number" class="form-control form-control-sm item-qty" data-item="Pecel" value="1" min="1" disabled />
-                </div>
-              </div>
-
-              <div class="row align-items-center mb-2">
-                <div class="col">
-                  <div class="form-check">
-                    <input class="form-check-input item-check" type="checkbox" id="itemTelor" data-item="Telor" />
-                    <label class="form-check-label" for="itemTelor">Telor</label>
-                  </div>
-                </div>
-                <div class="col-auto" style="width:110px;">
-                  <input type="number" class="form-control form-control-sm item-qty" data-item="Telor" value="1" min="1" disabled />
-                </div>
-              </div>
-
-              <div class="row align-items-center mb-2">
-                <div class="col">
-                  <div class="form-check">
-                    <input class="form-check-input item-check" type="checkbox" id="itemSambel" data-item="Sambel" />
-                    <label class="form-check-label" for="itemSambel">Sambel</label>
-                  </div>
-                </div>
-                <div class="col-auto" style="width:110px;">
-                  <input type="number" class="form-control form-control-sm item-qty" data-item="Sambel" value="1" min="1" disabled />
-                </div>
-              </div>
-
-              <div class="row align-items-center mb-2">
-                <div class="col">
-                  <div class="form-check">
-                    <input class="form-check-input item-check" type="checkbox" id="itemSayur" data-item="Sayur" />
-                    <label class="form-check-label" for="itemSayur">Sayur</label>
-                  </div>
-                </div>
-                <div class="col-auto" style="width:110px;">
-                  <input type="number" class="form-control form-control-sm item-qty" data-item="Sayur" value="1" min="1" disabled />
-                </div>
-              </div>
-
-              <div class="row align-items-center mb-3">
-                <div class="col">
-                  <div class="form-check">
-                    <input class="form-check-input item-check" type="checkbox" id="itemRemepeyek" data-item="Rempeyek" />
-                    <label class="form-check-label" for="itemKerupuk">Rempeyek</label>
-                  </div>
-                </div>
-                <div class="col-auto" style="width:110px;">
-                  <input type="number" class="form-control form-control-sm item-qty" data-item="Rempeyek" value="1" min="1" disabled />
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="note" class="form-label">Catatan (opsional)</label>
-              <textarea id="note" class="form-control" rows="2" placeholder="Contoh: pedas sedang, tanpa kecambah..."></textarea>
-              <div class="form-hint">Centang menu yang dipesan, lalu atur jumlahnya.</div>
-            </div>
-
-            <button type="submit" class="btn btn-success w-100">Kirim ke WhatsApp</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    (function(){
-      // === KONFIGURASI ===
-      const WA_PHONE = "6282135934679"; // GANTI dengan nomor WhatsApp (format internasional, tanpa +)
-
-      // Set tautan WA konsisten di footer & floating
-      const waFooter = document.getElementById('waFooter');
-      const waFloat = document.getElementById('waFloat');
-      if (waFooter) waFooter.href = `https://wa.me/${WA_PHONE}`;
-      if (waFloat) waFloat.href = `https://wa.me/${WA_PHONE}`;
-
-      // Enable/disable qty saat checkbox dicentang
-      document.querySelectorAll('.item-check').forEach(cb => {
-        cb.addEventListener('change', (e) => {
-          const item = e.target.getAttribute('data-item');
-          const qtyInput = document.querySelector(`.item-qty[data-item="${item}"]`);
-          if (qtyInput) {
-            qtyInput.disabled = !e.target.checked;
-            if (e.target.checked && (!qtyInput.value || qtyInput.value < 1)) qtyInput.value = 1;
-          }
-        });
-      });
-
-      // Submit form → rakit pesan WA
-      const form = document.getElementById('orderForm');
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        const name = document.getElementById('custName').value.trim();
-        const note = document.getElementById('note').value.trim();
-
-        // Kumpulkan item terpilih
-        const lines = [];
-        document.querySelectorAll('.item-check').forEach(cb => {
-          if (cb.checked) {
-            const item = cb.getAttribute('data-item');
-            const qtyInput = document.querySelector(`.item-qty[data-item="${item}"]`);
-            const qty = parseInt(qtyInput && qtyInput.value ? qtyInput.value : '0', 10);
-            if (qty > 0) lines.push(`- ${item} x ${qty}`);
-          }
-        });
-
-        if (!name) { alert('Isi nama Anda.'); return; }
-        if (lines.length === 0) { alert('Pilih minimal satu menu dan jumlahnya.'); return; }
-
-        let message = `Halo kak Salmaa, saya ${name}. Saya ingin pesan:%0A` + encodeURIComponent(lines.join('\n'));
-        if (note) message += `%0A%0ACatatan: ${encodeURIComponent(note)}`;
-
-        const url = `https://wa.me/${WA_PHONE}?text=${message}`;
-        window.open(url, '_blank');
-      });
-    })();
-  </script>
 </body>
 </html>
+🔧 Cara pakai:
+
+Ganti 6281234567890 dengan nomor WhatsApp Anda (pakai format internasional, tanpa + dan tanpa 0 di depan).
+Contoh: nomor 081234567890 ditulis jadi 6281234567890.
+
+Mau saya tambahkan juga agar tombol WA ini ada teks kecil (misalnya "Chat Kami") saat di-hover seperti tooltip?
 
 
 
 
-
-
-
-
-
-
-
+No file chosenNo file chosen
+ChatGPT dapat membuat kesalahan. Periksa info penting. Lihat Preferensi Cookie.
